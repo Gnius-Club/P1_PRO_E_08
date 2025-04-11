@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Sesión 8: ¡Dando Vida a la Sorpresa! - Programar Interacción Extra</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #ffa500; color: white; text-align: center; padding: 10px; } /* Orange Accent */
+        .activity { margin-bottom: 20px; }
+        details > summary {
+            background-color: #ffa500; /* Orange Accent */
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 0px; /* Reduced margin */
+            font-weight: bold;
+            list-style: none; /* Hide default arrow */
+            position: relative;
+            outline: none;
+            border-radius: 5px 5px 0 0; /* Rounded top corners */
+        }
+        details > summary::-webkit-details-marker { display: none; } /* Hide default arrow for Chrome/Safari */
+        details > summary::before { /* Custom Arrow */
+            content: '▶';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9em; /* Slightly larger arrow */
+            transition: transform 0.2s;
+        }
+        details[open] > summary::before { /* Custom Arrow when open */
+            transform: translateY(-50%) rotate(90deg);
+        }
+        details .content { /* Content visible by default inside details */
+             display: block;
+             padding: 15px; /* More padding */
+             border: 1px solid #ddd;
+             border-top: none; /* Avoid double border with summary */
+             margin-bottom: 10px;
+             border-radius: 0 0 5px 5px; /* Rounded bottom corners */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px; /* Add some space above the table */
+        }
+        th, td {
+            padding: 12px; /* Slightly more padding */
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top; /* Ensure content aligns at the top */
+        }
+        th {
+            background-color: #f8f8f8; /* Lighter grey background for headers */
+            font-weight: bold;
+        }
+        /* Style for the 'Action' column */
+        td:first-child {
+            width: 50%;
+        }
+        /* Style for the 'Dialogue' column */
+        td:last-child {
+            width: 50%;
+        }
+        /* Making facilitator instructions clearer */
+        td em, td i { /* Style for italicized facilitator notes */
+            color: #555;
+            font-style: italic;
+            display: block; /* Put notes on new lines */
+            margin-top: 5px;
+        }
+        /* Ensure step <strong> tags render bold */
+        td strong { font-weight: bold; display: block; margin-bottom: 5px; }
+
+
+        span[style*="color: red;"] {
+            font-weight: bold;
+        }
+        ul, ol {
+            margin-top: 5px; /* Adjust spacing for lists */
+            margin-bottom: 10px;
+            padding-left: 25px; /* Indent lists slightly more */
+        }
+        li {
+            margin-bottom: 8px; /* More space between list items */
+        }
+        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555; font-weight: bold;}
+         hr { border: none; border-top: 1px solid #eee; margin: 8px 0; } /* Subtle separator */
+         .subtitle { font-size: 0.9em; color: #e0e0e0; margin-top: 5px;} /* Subtitle style from example */
+    </style>
+    <script>
+        // Basic script to ensure details elements work consistently if needed,
+        // but modern browsers handle <details> natively.
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook - Sesión 8: ¡Dando Vida a la Sorpresa! - Programar Interacción Extra</h1>
+    </div>
+    <div class="container">
+        <h2 class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+        <!-- Resumen de Sesión -->
+        <details id="activity-0" class="activity" open> <!-- Open by default -->
+            <summary>📝 Resumen de Sesión</summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
+                            <strong>🎯 Objetivo de la Sesión:</strong>
+                            <ul>
+                                <li>Programar la mini-interacción extra diseñada en la Sesión 7 utilizando los bloques apropiados de Scratch Jr. (movimiento, sonido, apariencia, etc.).</li>
+                                <li>Asegurar que la nueva interacción se active correctamente (ej. al tocar un objeto específico en la Escena Mejor).</li>
+                                <li>Verificar que la nueva interacción funcione sin interferir con el flujo principal del proyecto.</li>
+                                <li>Consolidar la colaboración del equipo en la implementación y prueba de nuevas funcionalidades.</li>
+                            </ul>
+                        </td>
+                        <td style="width: 50%; padding: 10px;">
+                            <strong>🔑 Entregable Clave:</strong> Proyecto Scratch Jr. con la mini-interacción extra programada y funcional dentro de la Escena Mejor.
+                            <br><br>
+                            <strong>⏱️ Duración Estimada:</strong> 40 minutos.
+                            <br><br>
+                            <strong>🛠️ Materiales Específicos:</strong>
+                            <ul>
+                                <li>Dispositivos con Scratch Jr. y el proyecto guardado de la Sesión 6 (o S7 si hubo guardado).</li>
+                                <li>El diseño/plan de la interacción extra (dibujo/esquema de S7).</li>
+                                <li>Tablero Kanban con el estado actualizado.</li>
+                                <li>Tarjeta de tarea "Programar Interacción Extra" (creada en S7).</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 1: Stand-up de Programación -->
+        <details id="activity-1" class="activity">
+            <summary>▶️ Actividad 1: Stand-up de Programación ⏰ Tiempo: 5 minutos</summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (3 min): Recordar el Plan Secreto</strong>
+                            <br>Reunir a los equipos con su proyecto abierto y el plan/dibujo de la interacción extra (S7) a la vista.
+                            <br>Preguntar cuál era la "sorpresa" que diseñaron.
+                            <br><strong>Proyectar Diapositiva 1</strong> (Título de la Sesión + Iconos de varita mágica ✨ y bloques de código </>).
+                            <br><strong>Proyectar Diapositiva 2</strong> (Recordatorio visual del diagrama "Objeto -> Al Tocar -> Resultado" de S7).
+                        </td>
+                        <td>
+                            "¡Hola, magos de Scratch Jr.! Hoy vamos a darle vida a esa 'sorpresa más' que diseñamos."
+                            <br><br>
+                            "Tengan a mano su 'Plan Secreto' (el dibujo de la sesión pasada). ¿Cuál era la interacción sorpresa que planearon para la Escena Mejor? <em>(Permitir que cada equipo recuerde brevemente su idea, refiriéndose a Diapositiva 2)</em>."
+                            <br><br>
+                            "¡Exacto! Hoy nuestra misión es usar los bloques de Scratch Jr. para hacer que esa magia suceda. <em>(Mostrar Diapositiva 1)</em>."
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (2 min): Roles y Kanban</strong>
+                             <br>Confirmar roles, recordando que el **Constructor/a** programa, el **Diseñador/a** guía con el plan, y el **Probador/a** verifica.
+                             <br>Ubicar la tarjeta "Programar Interacción Extra" en el Kanban (debería estar en "Tareas por Hacer" o "✅ ¡Terminado!" de la sesión anterior si solo era diseño). Asegurarse de que esté lista para moverse a "¡Haciendo Ahora!".
+                        </td>
+                        <td>
+                            "Recordemos rápido los roles para esta misión de programación: Constructor/a, ¡listo/a con los bloques! Diseñador/a, ¡con el plan secreto en mano para guiar! Probador/a, ¡preparado/a para verificar la magia!"
+                            <br><br>
+                            "Busquemos nuestra tarea 'Programar Interacción Extra' en el Mapa Mágico (Kanban). ¡Hoy la moveremos a '¡Haciendo Ahora!' cuando empecemos a programar!"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 2: Programando la Sorpresa -->
+        <details id="activity-2" class="activity">
+            <summary>⌨️ Actividad 2: Programando la Sorpresa ⏰ Tiempo: 30 minutos</summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (5 min): Preparar el Escenario y el Objeto</strong>
+                            <br>Guiar al **Constructor/a** para ir a la Escena Mejor.
+                            <br>Identificar y seleccionar el objeto/personaje específico que activará la sorpresa (el que dibujaron en el Paso 1 del plan de S7).
+                            <br>Mover tarjeta "Programar Interacción Extra" a "¡Haciendo Ahora!".
+                        </td>
+                        <td>
+                            "¡Constructores, a la acción! Vayan a la Escena Mejor en su proyecto."
+                            <br><br>
+                            "Ahora, encuentren y seleccionen el objeto o personaje que va a activar la sorpresa... ¿Era el árbol? ¿El sol? ¿El amigo? ¡El que dibujaron en su plan secreto!"
+                            <br><br>
+                             "¡Perfecto! Ya tenemos al protagonista de nuestra sorpresa. ¡Movemos la tarjeta a '¡Haciendo Ahora!' en el Kanban!"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (15 min): Construir el Script de la Interacción</strong>
+                            <br>El **Constructor/a**, guiado por el **Diseñador/a** (usando el plan de S7), añade los bloques necesarios:
+                            <ol>
+                                <li>Bloque Amarillo 'Al Tocar Personaje' (Start on Tap) como inicio.</li>
+                                <li>Bloques de Acción: Añadir el/los bloque(s) que realizan la acción planeada (ej. Bloque Azul 'Girar', Bloque Verde 'Pop' o 'Reproducir Sonido Grabado', Bloque Morado 'Mostrar/Ocultar' (Show/Hide), Bloque Azul Oscuro 'Crecer/Encoger' (Grow/Shrink)).</li>
+                            </ol>
+                            <br><strong>Proyectar Diapositiva 3</strong> (Mostrar ejemplos visuales de posibles secuencias de bloques para las interacciones comunes: Ej1: Tocar -> Girar. Ej2: Tocar -> Sonido Pop. Ej3: Tocar -> Mostrar Objeto Oculto).
+                            <br>Facilitador circula activamente, ayudando a encontrar los bloques correctos y a conectarlos lógicamente según el plan de cada equipo.
+                        </td>
+                        <td>
+                            "¡Ahora, a construir la magia! Constructores, debajo del personaje seleccionado, pongan el bloque amarillo 'Al Tocar Personaje'."
+                            <br><br>
+                            "Diseñadores, ¡miren el plan! ¿Qué pasaba después de tocar? ¿Giraba? ¿Hacía un sonido? ¿Aparecía algo?"
+                            <br><br>
+                            "Constructores, busquen el bloque que hace esa acción. Si era girar, un bloque azul de giro. Si era sonido, uno verde. Si algo aparecía o desaparecía, los bloques morados 'Mostrar' u 'Ocultar'. <em>(Mostrar Diapositiva 3 con ejemplos)</em>. ¡Conecten ese bloque de acción debajo del bloque amarillo!"
+                            <br><br>
+                            "Recuerden el plan que dibujaron. ¡Sigan esos pasos!"
+                             <br>
+                            <em>(Facilitador asiste: "¿Qué bloque usarían para hacer que algo aparezca?", "Recuerda conectar el bloque verde de sonido justo después del amarillo", "¿Cuántos pasos de giro dice el plan? Pon ese número en el bloque azul").</em>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 3 (10 min): Pruebas y Ajustes (Probador/a Lidera)</strong>
+                            <br>El **Probador/a** prueba la nueva interacción repetidamente en la Escena Mejor.
+                            <ul>
+                                <li>¿Se activa al tocar el objeto/personaje correcto?</li>
+                                <li>¿Realiza la acción planeada (girar, sonar, aparecer, etc.)?</li>
+                                <li>¿Interfiere con alguna otra cosa en la escena?</li>
+                                <li>¿Sigue funcionando el flujo principal para salir de la Escena Mejor (si aplica)?</li>
+                            </ul>
+                            <br>El **Constructor/a** realiza ajustes finos según el feedback (ej. cambiar el número de giros, ajustar volumen de sonido grabado, cambiar bloque si no es el correcto).
+                            <br>Mover tarjeta a "¡Listo para Probar!" durante las pruebas, y a "✅ ¡Terminado!" si funciona correctamente.
+                        </td>
+                        <td>
+                            "¡Probadores, es su momento de verificar la sorpresa!"
+                            <br><br>
+                            "Vayan a la Escena Mejor. Toquen el objeto/personaje de la sorpresa. ¿Pasa lo que planeamos? ¡Pruébenlo varias veces!"
+                            <br><br>
+                            "¿Suena bien? ¿Se mueve correctamente? ¿Aparece o desaparece como queríamos?"
+                            <br><br>
+                            "¡Importante! ¿Esta nueva magia rompió algo más? ¿Podemos seguir jugando normalmente?"
+                            <br><br>
+                            "Si hay que ajustar algo (más rápido, más lento, otro sonido...), ¡díganle al Constructor!"
+                            <br><br>
+                            "Muevan la tarjeta a '¡Listo para Probar!' mientras verifican. Si la sorpresa funciona perfectamente... ¡A '✅ ¡Terminado!' en el Kanban!"
+                             <br>
+                            <em>(Facilitador ayuda a interpretar los resultados de las pruebas y a sugerir ajustes).</em>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 3: Cierre y Celebración de la Sorpresa -->
+        <details id="activity-3" class="activity">
+            <summary>🎉 Actividad 3: Cierre y Celebración de la Sorpresa ⏰ Tiempo: 5 minutos</summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (2 min): Mini-Show de Sorpresas (Opcional)</strong>
+                            <br>Invitar a 1-2 equipos a mostrar su nueva interacción extra funcionando.
+                        </td>
+                        <td>
+                            "¡Equipos, han añadido un toque secreto y genial a sus aventuras!"
+                            <br><br>
+                            "¿Alguien quiere hacer una mini-demo y mostrarnos su sorpresa en acción? <em>(Demo rápida de 1-2 equipos)</em>. ¡Qué divertido! ¡Aplausos por esa creatividad extra!"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (2 min): Guardar Proyecto (¡Fundamental!)</strong>
+                            <br>Guiar EXPLICITAMENTE a los Constructores para guardar el proyecto con la nueva interacción.
+                            <br>Asegurarse de que todos guarden.
+                            <br><strong>Proyectar Diapositiva 4</strong> (Icono grande de Guardar + Mensaje "¡Guarda tu Aventura con Sorpresa!").
+                        </td>
+                        <td>
+                            "¡Ahora a guardar esta versión mejorada con la sorpresa incluida! ¡No la perdamos!"
+                            <br><br>
+                            "Constructores, ¡el último guardado de hoy! Botón de guardar (casita o ✓). <em>(Mostrar Diapositiva 4)</em>."
+                             <br><br>
+                            <em>(Verificar que todos guarden).</em> "¿Todo guardado y con sorpresa? ¡Excelente!"
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 3 (1 min): Próximos Pasos y Cierre</strong>
+                            <br>Anunciar Sesión 9: Probar TODO (flujo principal + interacción extra) y corregir errores finales.
+                            <br>Felicitar por añadir la funcionalidad extra.
+                        </td>
+                        <td>
+                            "¡Felicidades, creadores de sorpresas! Han hecho su aventura aún más interesante."
+                            <br><br>
+                            "La próxima sesión será la ¡GRAN PRUEBA FINAL! Vamos a probar TODO junto, el flujo principal Y la sorpresa, para cazar los últimos errores y dejar nuestra aventura ¡perfecta!"
+                            <br><br>
+                            "¡Gran trabajo añadiendo esa chispa extra hoy! ¡Nos vemos para las pruebas finales! ¡Adiós!"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+    </div> <!-- Fin del container -->
+</body>
+</html>
